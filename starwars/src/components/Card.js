@@ -17,12 +17,15 @@ const Text = styled.div `
 margin-bottom: 10px;
 color: darkblue;
 `
+const CardHeading = styled.h2 `
+text-shadow: 1px 3px 3px black;
+`
 
 export function Card(props) {
 console.log(props)
     return (
         <CardDiv>
-            <h3>{props.name}</h3>
+            <CardHeading>{props.name}</CardHeading>
             <Text>{`Date of Birth: ${props.birth}`}</Text>
             <Text>{`Gender: ${props.gender}`}</Text>
             <Text>{`Height: ${props.height}`} </Text>

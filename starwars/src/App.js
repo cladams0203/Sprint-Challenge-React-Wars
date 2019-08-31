@@ -17,9 +17,7 @@ const App = () => {
   useEffect(() => {
     axios.get('https://swapi.co/api/people/')
       .then(response => {
-        // console.log(response)
-        const test = response.data.results
-      setDataApi(test)})
+      setDataApi(response.data.results)})
       .catch(err => console.log(err))
   }, [])
  
