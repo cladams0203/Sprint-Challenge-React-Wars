@@ -13,16 +13,20 @@ const CardDiv = styled.div `
     box-shadow: 3px 3px 3px black;
 
 `;
+const Text = styled.div `
+margin-bottom: 10px;
+color: darkblue;
+`
 
 export function Card(props) {
 console.log(props)
     return (
         <CardDiv>
             <h3>{props.name}</h3>
-            <div>{`Date of Birth: ${props.birth}`}</div>
-            <div>{`Gender: ${props.gender}`}</div>
-            <div>{`Height: ${props.height}`} </div>
-            <div>{`Mass: ${props.mass}`} </div>
+            <Text>{`Date of Birth: ${props.birth}`}</Text>
+            <Text>{`Gender: ${props.gender}`}</Text>
+            <Text>{`Height: ${props.height}`} </Text>
+            <Text>{`Mass: ${props.mass}`} </Text>
         </CardDiv>
     )
 }
