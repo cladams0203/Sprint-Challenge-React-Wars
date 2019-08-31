@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import {Cards} from './components/Cards';
+import CardsDiv from './components/CardsDiv';
 
 
 const App = () => {
@@ -11,19 +11,26 @@ const App = () => {
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  const [data, setData] = useState('')
+  const [dataApi, setDataApi] = useState([{}])
+  // const [newData, setNewData] = useState('')
 
   useEffect(() => {
-    axios
-      .get('https://swapi.co/api/people')
-      .then(response => setData(response.data))
+    axios.get('https://swapi.co/api/people/')
+      .then(response => {
+        // console.log(response)
+        const test = response.data.results
+      setDataApi(test)})
       .catch(err => console.log(err))
   }, [])
-  console.log(data)
+ 
+ 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <Cards data={data.results} />
+      
+      <CardsDiv data={dataApi} />
+      
+      
     </div>
   );
 }
